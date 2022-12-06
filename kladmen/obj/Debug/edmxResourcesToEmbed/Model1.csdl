@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Sklad">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Type_mat" Type="Int32" />
+    <Property Name="Dastansion" Type="Double" />
+    <NavigationProperty Name="Type_mat1" Relationship="Self.FK_Sklad_Type_mat" FromRole="Sklad" ToRole="Type_mat" />
+    <NavigationProperty Name="stroymat" Relationship="Self.FK_stroymat_Sklad" FromRole="Sklad" ToRole="stroymat" />
+  </EntityType>
+  <EntityType Name="stroymat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Ed_izm" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Ostatok" Type="Double" />
+    <Property Name="ID_Sklad" Type="Int32" />
+    <NavigationProperty Name="Sklad" Relationship="Self.FK_stroymat_Sklad" FromRole="stroymat" ToRole="Sklad" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Type_mat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sklad" Relationship="Self.FK_Sklad_Type_mat" FromRole="Type_mat" ToRole="Sklad" />
+  </EntityType>
+  <Association Name="FK_Sklad_Type_mat">
+    <End Role="Type_mat" Type="Self.Type_mat" Multiplicity="0..1" />
+    <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_mat">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sklad">
+        <PropertyRef Name="Type_mat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stroymat_Sklad">
+    <End Role="Sklad" Type="Self.Sklad" Multiplicity="0..1" />
+    <End Role="stroymat" Type="Self.stroymat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sklad">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="stroymat">
+        <PropertyRef Name="ID_Sklad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Sklad" EntityType="Self.Sklad" />
+    <EntitySet Name="stroymat" EntityType="Self.stroymat" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Type_mat" EntityType="Self.Type_mat" />
+    <AssociationSet Name="FK_Sklad_Type_mat" Association="Self.FK_Sklad_Type_mat">
+      <End Role="Type_mat" EntitySet="Type_mat" />
+      <End Role="Sklad" EntitySet="Sklad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stroymat_Sklad" Association="Self.FK_stroymat_Sklad">
+      <End Role="Sklad" EntitySet="Sklad" />
+      <End Role="stroymat" EntitySet="stroymat" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

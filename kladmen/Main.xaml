@@ -1,0 +1,16 @@
+﻿<Window x:Class="kladmen.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kladmen"
+        mc:Ignorable="d"
+        Title="Main" MinHeight="234" MinWidth="800">
+    <Viewbox>
+        <Grid  Height="234" Width="800">
+        <TextBlock Text="Выберите что хотите посмотреть" FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 20 0 0"/>
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Склад" FontSize="50" Width="200" Margin="70 0 0 10" Click="Button_Click"/>
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Стройматериалы" FontSize="40" Width="400" Height="70" Margin="0 0 50 10" Click="Button_Click_1"/>
+    </Grid>
+    </Viewbox>
+</Window>

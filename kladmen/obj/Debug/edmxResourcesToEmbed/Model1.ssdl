@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Sklad">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="255" />
+    <Property Name="Type_mat" Type="int" />
+    <Property Name="Dastansion" Type="float" />
+  </EntityType>
+  <EntityType Name="stroymat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Ed_izm" Type="nvarchar" MaxLength="255" />
+    <Property Name="Ostatok" Type="float" />
+    <Property Name="ID_Sklad" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Type_mat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_Sklad_Type_mat">
+    <End Role="Type_mat" Type="Self.Type_mat" Multiplicity="0..1" />
+    <End Role="Sklad" Type="Self.Sklad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_mat">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sklad">
+        <PropertyRef Name="Type_mat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stroymat_Sklad">
+    <End Role="Sklad" Type="Self.Sklad" Multiplicity="0..1" />
+    <End Role="stroymat" Type="Self.stroymat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sklad">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="stroymat">
+        <PropertyRef Name="ID_Sklad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ModelContainer">
+    <EntitySet Name="Sklad" EntityType="Self.Sklad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="stroymat" EntityType="Self.stroymat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Type_mat" EntityType="Self.Type_mat" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Sklad_Type_mat" Association="Self.FK_Sklad_Type_mat">
+      <End Role="Type_mat" EntitySet="Type_mat" />
+      <End Role="Sklad" EntitySet="Sklad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stroymat_Sklad" Association="Self.FK_stroymat_Sklad">
+      <End Role="Sklad" EntitySet="Sklad" />
+      <End Role="stroymat" EntitySet="stroymat" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="kladmen.Vhod"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kladmen"
+        mc:Ignorable="d"
+        Title="Vhod" MinHeight="319" MinWidth="800">
+    <Viewbox>
+        <Grid Height="319" Width="800">
+            <TextBlock Text="Авторизация" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 10 0 0"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Введите код: " VerticalAlignment="Center" FontSize="30" Height="47"/>
+                <TextBox x:Name="kod" Height="50" Width="400" FontSize="33"/>
+            </StackPanel>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30" Content="Войти" Height="50"  Width="200" Margin="0 0 0 10" Click="Button_Click"/>
+        </Grid>
+    </Viewbox>
+</Window>
