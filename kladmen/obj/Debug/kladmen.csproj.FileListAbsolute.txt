@@ -27,3 +27,5 @@ C:\Users\imnv9\Desktop\на время\kladmen\kladmen\bin\Debug\ru\EntityFramew
 C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\Sklad_show.baml
 C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\Stroy.baml
 C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\kladmen.csproj.CopyComplete
+C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\Add_edir.g.cs
+C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\Add_edir.baml

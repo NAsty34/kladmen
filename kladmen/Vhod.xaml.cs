@@ -26,7 +26,7 @@ namespace kladmen
             kod.Focus();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
             if (kod.Text == "0000")
             {
@@ -36,6 +36,14 @@ namespace kladmen
             else
             {
                 MessageBox.Show("Вы вели неправильный пароль, введите 0000");
+            }
+        }
+
+        private void kod_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                Button_Click(null, null);
             }
         }
     }

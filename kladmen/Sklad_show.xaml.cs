@@ -30,5 +30,34 @@ namespace kladmen
             new Main().Show();
             Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var R_S = ((Button)sender).DataContext as Sklad;
+            var w = new Add_edir();
+            w.init(R_S);
+            w.ShowDialog();
+            list_sklad.Items.Refresh();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var R_S = ((Button)sender).DataContext as Sklad;
+            Entities.Mod().stroymat.RemoveRange(R_S.stroymat);
+            Entities.Mod().Sklad.Remove(R_S);
+            Entities.Mod().SaveChanges();
+            (list_sklad.ItemsSource as List<Sklad>).Remove(R_S);
+            list_sklad.Items.Refresh();
+            MessageBox.Show("Запись о складе удалена");
+        }
+
+        private void Button_Click_add(object sender, RoutedEventArgs e)
+        {
+           
+            var w = new Add_edir();
+            w.add_ss_init();
+            w.ShowDialog();
+            list_sklad.ItemsSource = Entities.Mod().Sklad.ToList();
+        }
     }
 }

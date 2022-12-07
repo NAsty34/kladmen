@@ -9,41 +9,49 @@
     <Viewbox>
         <Grid Height="450" Width="800">
             <Grid.RowDefinitions>
-                <RowDefinition Height="37*"/>
-                <RowDefinition Height="180*"/>
+                <RowDefinition Height="62*"/>
+                <RowDefinition Height="163*"/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" Content="Назад" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" FontSize="40" Click="Button_Click"/>
-            <TextBlock Text="Стройматериалы" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" Width="317" Grid.Row="0"/>
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Height="114" >
+                <Button  Content="Назад"  FontSize="30"  Click="Button_Click"/>
+                <TextBlock/>
+                <Button  Content="Добавить"  FontSize="30" Click="Button_Click_add"/>
+            </StackPanel>
+
+            <TextBlock Text="Стройматериалы" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" Width="316" Height="52"/>
             <ListBox x:Name="list_stroy" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Vertical" Height="115" Width="779">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Height="115" Width="779">
                             <TextBlock Text="{Binding Path=Name}" Width="779" VerticalAlignment="Top" Height="38" HorizontalAlignment="Center" FontSize="30"/>
                             <StackPanel Orientation="Horizontal" Height="28">
                                 <TextBlock Text="Единица измерения: " FontSize="20"/>
-                                
+
                                 <TextBlock Text="{Binding Path=Ed_izm}" FontSize="20"/>
                                 <TextBlock Width="10"/>
                                 <TextBlock Text="Остаток на складе: " FontSize="20"/>
-                               
+
                                 <TextBlock Text="{Binding Path=Ostatok}" FontSize="20"/>
                                 <TextBlock Width="10"/>
 
                                 <TextBlock Text="Находится на складе: " FontSize="20"/>
-                                
+
                                 <TextBlock Text="{Binding Path=ID_Sklad}" FontSize="20"/>
                                 <TextBlock Width="10"/>
 
                             </StackPanel>
                             <StackPanel Height="10" />
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Редактировать"/>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="20">
+
+
+                                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Редактировать" Click="Button_Click_1"/>
                                 <TextBlock Width="100"/>
-                                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Удалить"/>
+                                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Удалить" Click="Button_Click_2"/>
                             </StackPanel>
-                           
+
                         </StackPanel>
-                        
+
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

@@ -11,7 +11,7 @@
             <TextBlock Text="Авторизация" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 10 0 0"/>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock Text="Введите код: " VerticalAlignment="Center" FontSize="30" Height="47"/>
-                <TextBox x:Name="kod" Height="50" Width="400" FontSize="33"/>
+                <TextBox x:Name="kod" Height="50" Width="400" FontSize="33" KeyDown="kod_KeyDown"/>
             </StackPanel>
             <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30" Content="Войти" Height="50"  Width="200" Margin="0 0 0 10" Click="Button_Click"/>
         </Grid>

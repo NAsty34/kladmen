@@ -1,0 +1,20 @@
+Напишите запрос, переводящий строительные материалы, находящиеся на складе в пос. Веканово на склад в пос. Заскочиха.
+update stroymat set ID_Sklad = (select ID from Sklad where Adress='пос.Заскочиха') where ID_Sklad = (select ID from Sklad where Adress='пос.Веканово');
+
+Напишите запрос, который выводит Адрес, Вид_материалов и Расстояние из таблицы Склад.
+Select Adress, Type_mat, Dastansion from Sklad;
+
+Напишите запрос, который вывел бы список всех стройматериалов, находящихся на складе в д.Комарово.
+Select * from stroymat where ID_Sklad = (select ID from Sklad where Adress='д.Крутово');
+
+Напишите запрос, который вывел бы таблицу Стройматериал со столбцами в обратном порядке.
+select ID_Sklad, Ostatok, Ed_izm, Name, ID from stroymat
+
+Напишите запрос, извлекающий из таблицы Стройматериал список складов, где хранятся эти стройматериалы. Склады не должны повторяться.
+select DISTINCT ID_Sklad from stroymat
+
+Напишите запрос, выводящий наименование и номер склада стройматериала с самым большим остатком.
+select Name,ID_Sklad from stroymat Where Ostatok = (select MAX(Ostatok) from stroymat)
+
+Напишите запрос на удаление всех стройматериалов, хранящихся на складе №1.
+delete from stroymat where (ID_Sklad=1);
