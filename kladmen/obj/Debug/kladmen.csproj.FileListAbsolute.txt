@@ -29,3 +29,11 @@ C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\Stroy.baml
 C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\kladmen.csproj.CopyComplete
 C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\Add_edir.g.cs
 C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\Add_edir.baml
+C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\b_sap.g.cs
+C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\Zapros.g.cs
+C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\b_sap.baml
+C:\Users\imnv9\Desktop\на время\kladmen\kladmen\obj\Debug\Zapros.baml
+C:\Users\imnv9\Desktop\на время\kladmen\kladmen\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\imnv9\Desktop\на время\kladmen\kladmen\bin\Debug\itextsharp.dll
+C:\Users\imnv9\Desktop\на время\kladmen\kladmen\bin\Debug\itextsharp.xml
+C:\Users\imnv9\Desktop\на время\kladmen\kladmen\bin\Debug\ru\EntityFramework.SqlServer.resources.dll

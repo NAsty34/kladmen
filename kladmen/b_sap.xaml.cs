@@ -15,30 +15,26 @@ using System.Windows.Shapes;
 namespace kladmen
 {
     /// <summary>
-    /// Логика взаимодействия для Main.xaml
+    /// Логика взаимодействия для b_sap.xaml
     /// </summary>
-    public partial class Main : Window
+    public partial class b_sap : Window
     {
-        public Main()
+        public b_sap()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new Sklad_show().Show();
-            Close();
+            var w = ((Button)sender).DataContext.ToString();
+            var g = new Zapros();
+            g.init(w);
+            g.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            new Stroy().Show();
-            Close();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            new b_sap().Show();
+            new Main().Show();
             Close();
         }
     }

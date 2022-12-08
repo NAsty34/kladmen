@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:kladmen"
         mc:Ignorable="d"
-        Title="Main" MinHeight="234" MinWidth="800">
+        Title="Main" MinHeight="234" MinWidth="1100" Width="1100">
     <Viewbox>
-        <Grid  Height="234" Width="800">
+        <Grid  Height="234" Width="1100">
         <TextBlock Text="Выберите что хотите посмотреть" FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 20 0 0"/>
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Склад" FontSize="50" Width="200" Margin="70 0 0 10" Click="Button_Click"/>
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Стройматериалы" FontSize="40" Width="400" Height="70" Margin="0 0 50 10" Click="Button_Click_1"/>
+        <Button VerticalAlignment="Center" HorizontalAlignment="Left" Content="Склад" FontSize="40" Margin="70 60 0 0" Click="Button_Click" />
+        <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Стройматериалы" FontSize="40" Margin="0 60 200 0" Click="Button_Click_1"/>
+        <Button VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="40" Content="Просмотр запросов" Margin="0 60 20 0" Click="Button_Click_2"/>
     </Grid>
     </Viewbox>
 </Window>
